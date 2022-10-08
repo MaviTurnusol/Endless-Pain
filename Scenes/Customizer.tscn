@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Font/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 100
+font_data = ExtResource( 2 )
+
+[sub_resource type="NavigationPolygon" id=3]
+vertices = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+outlines = [ PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 ) ]
+
+[sub_resource type="OccluderPolygon2D" id=4]
+polygon = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+
+[sub_resource type="TileSet" id=6]
+0/name = "icon.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/occluder = SubResource( 4 )
+0/navigation_offset = Vector2( 0, 0 )
+0/navigation = SubResource( 3 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 5 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[node name="Customizer" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 219.0
+margin_right = 809.0
+margin_bottom = 115.0
+theme = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Who am I ?"
+
+[node name="TabContainer" type="TabContainer" parent="."]
+margin_left = 219.0
+margin_top = 115.0
+margin_right = 809.0
+margin_bottom = 175.0
+
+[node name="Tabs" type="Tabs" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="TileMap" type="TileMap" parent="TabContainer/Tabs"]
+position = Vector2( -223, -147 )
+tile_set = SubResource( 6 )
+format = 1
+tile_data = PoolIntArray( 196612, 0, 0, 196613, 0, 0, 196614, 0, 0 )
+
+[node name="Tabs2" type="Tabs" parent="TabContainer"]
+visible = false
+margin_right = 40.0
+margin_bottom = 24.0
