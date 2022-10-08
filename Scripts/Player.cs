@@ -13,6 +13,7 @@ public class Player : KinematicBody2D
     Vector2 velocity;
     bool dashready = true;
     string state = "idle";
+    bool a = false;
 
     Vector2 upDirection = Vector2.Up;
     // Called when the node enters the scene tree for the first time.
@@ -50,10 +51,14 @@ public class Player : KinematicBody2D
 
         
         //jump
-        if (Input.IsKeyPressed((int)KeyList.X) && IsOnFloor() == true)
-        {
-            _vspeed = -1400f;
-        }
+      //  if (Input.IsKeyPressed((int)KeyList.X) && IsOnFloor() == true)
+       // {
+      //       _vspeed = -1400f;
+      //  }
+      //  if (Input.IsKeyPressed((int)KeyList.Down))
+      //  {
+      //      _vspeed = 0f;
+      //  }
 
         //dash
         Timer timer = this.GetNode<Timer>("Timer");
@@ -97,5 +102,22 @@ public class Player : KinematicBody2D
         {
             dashready = true;
         }
+    }
+
+    public override void _UnhandledInput(InputEvent @event)
+    {
+        base._UnhandledInput(@event);
+        if (@event is InputEventKey eventKey)
+        {
+            if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.X && IsOnFloor() == true)
+            {
+                _vspeed = -1400f;
+            }
+            if (eventKey.IsActionReleased("Jump") && eventKey.Scancode == (int)KeyList.X)
+            {
+                _vspeed = 0f;
+            }
+        }
+
     }
 }
