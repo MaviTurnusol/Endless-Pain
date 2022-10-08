@@ -1,2 +1,2 @@
-﻿59972
-D:/Indirilenler D/Godot_v3.5-stable_mono_win64/Godot_v3.5-stable_mono_win64.exe
+﻿56904
+C:/Users/Mert/OneDrive/Masaüstü/Godot_v3.5-stable_mono_win64/Godot_v3.5-stable_mono_win64.exe

@@ -7,3 +7,11 @@ D:\Godod\Endless Nameless\Endless-Pain\.mono\temp\obj\Debug\Endless Nameless.Ass
 D:\Godod\Endless Nameless\Endless-Pain\.mono\temp\obj\Debug\Endless Nameless.csproj.CoreCompileInputs.cache
 D:\Godod\Endless Nameless\Endless-Pain\.mono\temp\obj\Debug\Endless Nameless.dll
 D:\Godod\Endless Nameless\Endless-Pain\.mono\temp\obj\Debug\Endless Nameless.pdb
+C:\Users\Mert\OneDrive\Belgeler\GitHub\Endless-Pain\.mono\temp\bin\Debug\Endless Nameless.dll
+C:\Users\Mert\OneDrive\Belgeler\GitHub\Endless-Pain\.mono\temp\bin\Debug\Endless Nameless.pdb
+C:\Users\Mert\OneDrive\Belgeler\GitHub\Endless-Pain\.mono\temp\obj\Debug\Endless Nameless.csprojAssemblyReference.cache
+C:\Users\Mert\OneDrive\Belgeler\GitHub\Endless-Pain\.mono\temp\obj\Debug\Endless Nameless.AssemblyInfoInputs.cache
+C:\Users\Mert\OneDrive\Belgeler\GitHub\Endless-Pain\.mono\temp\obj\Debug\Endless Nameless.AssemblyInfo.cs
+C:\Users\Mert\OneDrive\Belgeler\GitHub\Endless-Pain\.mono\temp\obj\Debug\Endless Nameless.csproj.CoreCompileInputs.cache
+C:\Users\Mert\OneDrive\Belgeler\GitHub\Endless-Pain\.mono\temp\obj\Debug\Endless Nameless.dll
+C:\Users\Mert\OneDrive\Belgeler\GitHub\Endless-Pain\.mono\temp\obj\Debug\Endless Nameless.pdb

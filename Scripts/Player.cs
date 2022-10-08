@@ -29,11 +29,11 @@ public class Player : KinematicBody2D
 
         if (Input.IsActionPressed("ui_left"))
         {
-            _hspeed = -4f;
+            _hspeed = -10f;
         }
         else if (Input.IsActionPressed("ui_right"))
         {
-            _hspeed = 4f;
+            _hspeed = 10f;
         }
         else if(_hspeed > 0)
         {
@@ -90,6 +90,7 @@ public class Player : KinematicBody2D
         {
             _dspeed = 0f;
             state = "idle";
+            gravity = 640f;
         }
 
         if(IsOnFloor())
