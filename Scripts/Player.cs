@@ -16,17 +16,24 @@ public class Player : KinematicBody2D
     bool a = false;
 
     Vector2 upDirection = Vector2.Up;
+
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         Timer timer = this.GetNode<Timer>("Timer");
-        timer.WaitTime = (float) 0.25f;
+        timer.WaitTime = (float) 0.5f;
         timer.Connect("timeout", this, "on_timeout");
+
+        TextureProgress stamina = GetParent().GetNode<CanvasLayer>("CanvasLayer").GetChild<TextureProgress>(0);
+        stamina.Value = 1000.0;
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _PhysicsProcess(float delta)
     {
+        TextureProgress stamina = GetParent().GetNode<CanvasLayer>("CanvasLayer").GetChild<TextureProgress>(0);
+        stamina.Value += 1;
 
         if (Input.IsActionPressed("ui_left"))
         {
@@ -62,8 +69,9 @@ public class Player : KinematicBody2D
 
         //dash
         Timer timer = this.GetNode<Timer>("Timer");
-        if(Input.IsActionJustPressed("dash") && dashready == true)
+        if(Input.IsActionJustPressed("dash") && dashready == true && stamina.Value > 333)
         {
+            stamina.Value -= 333;
             if(_hspeed >= 0f)
             _dspeed = 10f;
             else {_dspeed = -10f;}
