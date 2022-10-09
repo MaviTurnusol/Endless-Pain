@@ -6,6 +6,8 @@ public class Player : KinematicBody2D
     // Declare member variables here. Examples:
     // private int a = 2;
     // private string b = "text";
+    PackedScene Fistscene;
+
     float _hspeed = 0f;
     float _dspeed = 0f;
     float _vspeed = 16f;
@@ -13,7 +15,8 @@ public class Player : KinematicBody2D
     Vector2 velocity;
     bool dashready = true;
     string state = "idle";
-    bool a = false;
+    bool fistis = true;
+
 
     Vector2 upDirection = Vector2.Up;
 
@@ -21,9 +24,15 @@ public class Player : KinematicBody2D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        Fistscene = GD.Load<PackedScene>("res://Scenes/Fist.tscn");
+
         Timer timer = this.GetNode<Timer>("Timer");
         timer.WaitTime = (float) 0.5f;
         timer.Connect("timeout", this, "on_timeout");
+
+        Timer timer2 = this.GetNode<Timer>("Timer");
+        timer2.WaitTime = (float)0.5f;
+        timer2.Connect("timeout", this, "on_timeout2");
 
         TextureProgress stamina = GetParent().GetNode<CanvasLayer>("CanvasLayer").GetChild<TextureProgress>(0);
         stamina.Value = 1000.0;
@@ -111,6 +120,11 @@ public class Player : KinematicBody2D
             dashready = true;
         }
     }
+    public void on_timeout2()
+    {
+        fistis = true;
+    }
+
 
     public override void _UnhandledInput(InputEvent @event)
     {
@@ -124,6 +138,17 @@ public class Player : KinematicBody2D
             if (eventKey.IsActionReleased("Jump") && eventKey.Scancode == (int)KeyList.X)
             {
                 _vspeed = 0f;
+            }
+            if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.C && fistis)
+            {
+                Timer timer2 = this.GetNode<Timer>("Timer");
+                Fist fist = (Fist)Fistscene.Instance();
+                fist.Position = Position;
+                fist.Rotation = Rotation;
+                GetParent().AddChild(fist);
+                GetTree().SetInputAsHandled();
+                fistis = false;
+                timer2.Start();
             }
         }
 
