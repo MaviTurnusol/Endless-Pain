@@ -38,10 +38,17 @@ public class Player : KinematicBody2D
         stamina.Value = 1000.0;
     }
 
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
+    void valgetter(double val)
+    {
+        TextureProgress stamina = GetParent().GetNode<CanvasLayer>("CanvasLayer").GetChild<TextureProgress>(0);
+        stamina.Value = val;
+    }
+
     public override void _PhysicsProcess(float delta)
     {
         TextureProgress stamina = GetParent().GetNode<CanvasLayer>("CanvasLayer").GetChild<TextureProgress>(0);
+        CanvasLayer canvasex = GetParent().GetNode<CanvasLayer>("CanvasLayer");
+        Tween twink = GetParent().GetNode<Tween>("twink");
         stamina.Value += 1;
 
         if (Input.IsActionPressed("ui_left"))
@@ -80,7 +87,8 @@ public class Player : KinematicBody2D
         Timer timer = this.GetNode<Timer>("Timer");
         if(Input.IsActionJustPressed("dash") && dashready == true && stamina.Value > 333)
         {
-            stamina.Value -= 333;
+            twink.InterpolateMethod(this, "valgetter", stamina.Value, stamina.Value - 333, 0.5f, Tween.TransitionType.Expo, Tween.EaseType.InOut);
+            twink.Start();
             if(_hspeed >= 0f)
             _dspeed = 10f;
             else {_dspeed = -10f;}
